@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
+    'blog',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,7 +63,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tangblog',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'D565458520d!',
         'HOST': 'localhost'
     }
 }
