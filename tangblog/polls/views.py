@@ -15,7 +15,7 @@ class DetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context['form'] = PollsForm
+        context['form'] = PollsForm(qid=self.request.path_info.split('/')[1])
         return context
 
 class IndexView(generic.ListView):
