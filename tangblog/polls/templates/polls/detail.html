@@ -1,11 +1,13 @@
+{% load staticfiles %}
+
 <h1>{{ question.question_text }}</h1>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
+<form id="polls-form" action="{% url 'polls:vote' %}" method="post">
     {% csrf_token %}
-    {% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{choice.id}}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-    {% endfor %}
+    {{ form }}
+    <input type="hidden" value="{{ question.id }}" id="qid" />
     <input type="submit" value="vote" />
 </form>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{% static 'polls/ajaxtest.js' %}"></script>
