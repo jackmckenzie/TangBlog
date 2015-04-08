@@ -77,7 +77,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tangblog',
         'USER': 'root',
-        'PASSWORD': 'D565458520d!',
+        'PASSWORD': '',
         'HOST': 'localhost'
     }
 }

@@ -15,7 +15,7 @@ class DetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context['form'] = PollsForm(qid=self.request.path_info.split('/')[1])
+        context['form'] = PollsForm(qid=[i for i in filter(None, self.request.path_info.split('/'))][-1])
         return context
 
 class IndexView(generic.ListView):
@@ -56,15 +56,23 @@ def vote(request):
         print(question_id)
         response_data = {}
 
-        q = Question.objects.get(id__exact=question_id)
-        selected_choice = q.choice_set.get(pk=vote_value)
-        selected_choice += 1
-        selected_choice.save()
 
-        results = q.choice_set.get()
-        response_data['results'] = results
+        q = get_object_or_404(Question, pk=question_id)
+        try:
+            selected_choice = q.choice_set.get(pk=vote_value)
+        except(KeyError, Choice.DoesNotExist):
+            return render(request, 'polls/detail.html', {
+                'question': q,
+                'error_message': "You didn select a choice",
+                })
+        else:
+            selected_choice.votes += 1
+            selected_choice.save()
 
-        return HttpResponse(
-            json.dumps(response_data),
-            content_type="application/json"
-        )
+            results = q.choice_set.all()
+            response_data['results'] = results
+
+            return HttpResponse(
+                json.dumps(response_data),
+                content_type="application/json"
+            )
