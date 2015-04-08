@@ -37,6 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
+    'blog',
+    'django_markdown',
+    'custom',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -46,7 +49,19 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'custom.middleware.viewmiddleware.ViewNameMiddleware',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "custom.middleware.viewmiddleware.view_name_context_processor",
+        )
 
 ROOT_URLCONF = 'tangblog.urls'
 
@@ -62,7 +77,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tangblog',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'D565458520d!',
         'HOST': 'localhost'
     }
 }
@@ -84,6 +99,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+STATIC_URL = '/static/'
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),
+        os.path.join(BASE_DIR, "common-static"),)
