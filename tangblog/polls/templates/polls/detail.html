@@ -1,13 +1,21 @@
+{% extends "base.html" %}
 {% load staticfiles %}
 
+
+{% block content %}
 <h1>{{ question.question_text }}</h1>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<ul id="result"><li>Vote First</li></ul>
 
 <form id="polls-form" action="{% url 'polls:vote' %}" method="post">
     {% csrf_token %}
     {{ form }}
-    <input type="hidden" value="{{ question.id }}" id="qid" />
+    <input type="text" value="{{ question.id }}" id="qid" style="display: none" />
     <input type="submit" value="vote" />
 </form>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block js %}
 <script src="{% static 'polls/ajaxtest.js' %}"></script>
+{% endblock %}

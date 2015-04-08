@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
+from django.core import serializers
 import json
 from django.utils import timezone
 
@@ -50,14 +51,14 @@ class ResultsView(generic.DetailView):
 #        return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
 def vote(request):
     if request.method == "POST":
-        vote_value = request.POST.get('the_vote')
+        vote_value = request.POST['the_vote']
         question_id = request.POST.get('question_id')
         print(vote_value)
         print(question_id)
         response_data = {}
 
-
         q = get_object_or_404(Question, pk=question_id)
+
         try:
             selected_choice = q.choice_set.get(pk=vote_value)
         except(KeyError, Choice.DoesNotExist):
@@ -70,9 +71,9 @@ def vote(request):
             selected_choice.save()
 
             results = q.choice_set.all()
-            response_data['results'] = results
+            response_data  = serializers.serialize("json", results)
 
             return HttpResponse(
-                json.dumps(response_data),
+                response_data,
                 content_type="application/json"
             )

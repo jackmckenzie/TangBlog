@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load django_markdown %}
 
-{% block blog_posts %}
+{% block content %}
 {% for object in object_list %}
     <article class="post"><a href="{% url "post_detail" slug=object.slug %}">
         <h2>{{ object.title }}</h2>

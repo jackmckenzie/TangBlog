@@ -39,7 +39,7 @@
 
                 <div class="row">
                     <div class="col-sm-8 blog-main">
-                        {% block blog_posts %} {% endblock %}
+                        {% block content %} {% endblock %}
 
                         {% if is_paginated %}
                         <ul class="pager">
@@ -65,5 +65,7 @@
 
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
          <script src="{% static "js/bootstrap.min.js" %}"></script>
+         <script src="{% static "js/jquery.entwine-dist.js" %}"></script>
+         {% block js %}{% endblock %}
     </body>
 </html>
