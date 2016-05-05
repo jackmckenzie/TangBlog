@@ -13,10 +13,10 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tlog_db',
-        'USER': 'root',
+        'NAME': '',
+        'USER': '',
         'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'HOST': '',
     }
 }
 
