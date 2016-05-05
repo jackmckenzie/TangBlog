@@ -1,0 +1,21 @@
+// Requirements
+// ============
+
+@import "susy";
+
+// $susy: (
+//   columns: 12,
+//   gutters: 1,
+  
+//   debug: (
+//   	image: show,
+//   	color: rgba(#656, .25),
+//   	output: overlay,
+//   	toggle: top right,)
+// );
+
+// Susy Layout
+$susy: layout(12 1 fluid float outside);
+
+// Specialised Nav Layout
+$nav_susy_layout: layout(12 0 fluid float inside)

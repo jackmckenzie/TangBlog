@@ -1,0 +1,38 @@
+header
+	// height: 100px
+	// background: $white
+	// color: $white
+	margin-bottom: 10px
+	padding: gutter(24)
+	@include breakpoint((max-width 50em))
+		@include span(12)
+		
+	.header-logo
+
+		h1, h3
+			margin: 0
+			@include breakpoint((max-width 50em))
+				text-align: center
+				
+
+
+nav
+	margin-top: 20px
+	ul
+		margin: 0
+		padding: 0
+		cursor: default
+		li
+			text-align: center
+			display: inline-block
+			padding: 0
+			a
+				padding: 0
+				margin: 0
+				// padding: 10px 20px
+				// margin: 10px
+								
+				&:hover, &:active
+					background-color: $color-background-shade
+
+		

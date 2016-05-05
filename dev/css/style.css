@@ -548,10 +548,124 @@ html {
   line-height: 24px;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #bec8cd;
 }
 
+h1 {
+  color: #373939;
+}
+
+h3 {
+  color: #bec8cd;
+}
+
+a {
+  color: #5a8ea3;
+  text-decoration: none;
+}
+a:hover {
+  color: #336073;
+}
+
+header {
+  margin-bottom: 10px;
+  padding: 2.12766%;
+}
+@media (max-width: 50em) {
+  header {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+header .header-logo h1, header .header-logo h3 {
+  margin: 0;
+}
+@media (max-width: 50em) {
+  header .header-logo h1, header .header-logo h3 {
+    text-align: center;
+  }
+}
+
+nav {
+  margin-top: 20px;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  cursor: default;
+}
+nav ul li {
+  text-align: center;
+  display: inline-block;
+  padding: 0;
+}
+nav ul li a {
+  padding: 0;
+  margin: 0;
+}
+nav ul li a:hover, nav ul li a:active {
+  background-color: #bec8cd;
+}
+
 .wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #ffffff;
+  margin: 50px auto;
+}
+.wrapper:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+header {
+  clear: both;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+header .header-logo {
+  width: 30.43478%;
+  float: left;
+  margin-right: 4.34783%;
+}
+@media (max-width: 50em) {
+  header .header-logo {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+header nav {
+  width: 65.21739%;
+  float: right;
+  margin-right: 0;
+}
+@media (max-width: 50em) {
+  header nav {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+header nav .nav-item {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 20%;
+  float: left;
 }
