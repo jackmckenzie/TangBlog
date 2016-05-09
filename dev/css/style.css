@@ -616,6 +616,10 @@ nav ul li a:hover, nav ul li a:active {
   background-color: #bec8cd;
 }
 
+.main-area {
+  background-color: #d17753;
+}
+
 .wrapper {
   max-width: 1200px;
   margin-left: auto;
@@ -668,4 +672,16 @@ header nav .nav-item {
   box-sizing: border-box;
   width: 20%;
   float: left;
+}
+
+.main-area {
+  clear: both;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
 }
