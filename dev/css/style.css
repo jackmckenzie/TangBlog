@@ -577,8 +577,10 @@ a:hover {
 header {
   margin-bottom: 10px;
   padding: 2.12766%;
+  overflow: hidden;
+  *zoom: 1;
 }
-@media (max-width: 50em) {
+@media (max-width: 60em) {
   header {
     width: 100%;
     float: left;
@@ -589,13 +591,18 @@ header {
 header .header-logo h1, header .header-logo h3 {
   margin: 0;
 }
-@media (max-width: 50em) {
+@media (max-width: 60em) {
   header .header-logo h1, header .header-logo h3 {
     text-align: center;
   }
 }
+header .header-logo h3 {
+  font-weight: 300;
+}
 
 nav {
+  overflow: hidden;
+  *zoom: 1;
   margin-top: 20px;
 }
 nav ul {
@@ -605,15 +612,22 @@ nav ul {
 }
 nav ul li {
   text-align: center;
-  display: inline-block;
   padding: 0;
 }
 nav ul li a {
+  display: block;
   padding: 0;
-  margin: 0;
+  margin: 0 10px;
 }
 nav ul li a:hover, nav ul li a:active {
   background-color: #bec8cd;
+}
+
+.main-area {
+  padding: 2.12766%;
+  background-color: #5a8ea3;
+  overflow: hidden;
+  *zoom: 1;
 }
 
 .wrapper {
@@ -641,7 +655,7 @@ header .header-logo {
   float: left;
   margin-right: 4.34783%;
 }
-@media (max-width: 50em) {
+@media (max-width: 60em) {
   header .header-logo {
     width: 100%;
     float: left;
@@ -650,11 +664,11 @@ header .header-logo {
   }
 }
 header nav {
-  width: 65.21739%;
+  width: 47.82609%;
   float: right;
   margin-right: 0;
 }
-@media (max-width: 50em) {
+@media (max-width: 60em) {
   header nav {
     width: 100%;
     float: left;
